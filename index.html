@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Bangla</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./assets/hero-leaf1.png" type="image/x-icon">
     <!-- Daisy & Tailwind -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -83,7 +85,7 @@
             </div>
         </section>
     </header>
-    <main class="bg-green-50 py-5">
+    <main class="bg-green-50 pt-5">
 
 
         <!-- Section: Choose Your Trees -->
@@ -196,7 +198,7 @@
 
             </div>
         </section>
-        <!-- About the Campaign Section -->
+        <!-- Section: About the Campaign -->
         <section class="bg-green-50 py-16">
             <div class="container mx-auto w-11/12">
                 <!-- Heading -->
@@ -205,15 +207,14 @@
                 </h2>
 
                 <!-- Content -->
-                <div class="flex flex-col md:flex-row items-center justify-center mx-auto">
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8">
                     <!-- Left: Image -->
-                    <div class="">
-                        <img src="./assets/about.png" alt="Plant"
-                            class="rounded-xl shadow-md w-4/12 lg:w-6/12  mx-auto" />
+                    <div class="w-full md:w-6/12 flex justify-center">
+                        <img src="./assets/about.png" alt="Plant" class="rounded-xl shadow-md w-full max-w-md" />
                     </div>
 
                     <!-- Right: Text -->
-                    <div class="w-6/12 p-4 md:p-8 text-gray-700">
+                    <div class="w-full md:w-6/12 text-gray-700 text-center lg:text-left">
                         <p>
                             Green Earth is a global tree plantation initiative dedicated to
                             fighting climate change. Since our start, we’ve planted over 500,000
@@ -226,6 +227,34 @@
                             <li>Support for local communities</li>
                         </ul>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Our Impact -->
+        <section class="bg-green-100 pt-5 pb-10">
+            <h2 class="text-lg lg:text-xl xl:text-2xl font-bold text-center">
+                Our Impact
+            </h2>
+
+            <!-- 3 Card Parent -->
+            <div class="flex flex-col lg:flex-row gap-7 justify-center items-center py-5">
+                <!-- Left Card -->
+                <div class="bg-white  w-full  max-w-sm rounded-md p-8 text-center shadow">
+                    <h2 class="text-xl text-green-900 lg:text-2xl font-bold">500k+</h2>
+                    <p class="py-2">Trees Planted</p>
+                </div>
+
+                <!-- Center Card -->
+                <div class="bg-white w-full max-w-sm rounded-md p-8 text-center shadow">
+                    <h2 class="text-xl text-green-900 lg:text-2xl font-bold">120+</h2>
+                    <p class="py-2">Communities Involved</p>
+                </div>
+
+                <!-- Right Card -->
+                <div class="bg-white w-full max-w-sm rounded-md p-8 text-center shadow">
+                    <h2 class="text-xl text-green-900 lg:text-2xl font-bold">30+</h2>
+                    <p class="py-2">Countries Reached</p>
                 </div>
             </div>
         </section>
