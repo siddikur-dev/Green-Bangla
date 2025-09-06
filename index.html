@@ -13,9 +13,7 @@
 </head>
 
 <body class="">
-    <header class="">
-
-
+    <header>
         <!--  Navbar -->
         <div class="navbar bg-green-700 text-white">
             <div class="w-11/12 lg:w-10/12 container mx-auto flex justify-between items-center cursor-pointer">
@@ -85,6 +83,120 @@
             </div>
         </section>
     </header>
+    <main>
+
+
+        <!-- 🌿 Section: Choose Your Trees -->
+        <section class="container mx-auto px-4 py-10">
+            <h2 class="text-center text-2xl md:text-3xl font-bold text-gray-800 mb-8">Choose Your Trees</h2>
+
+            <!-- Responsive Grid: Sidebar + Products + Cart -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+                <!-- Sidebar: Categories -->
+                <aside class="lg:col-span-2 bg-green-50">
+                    <h3 class="font-semibold mb-4">Categories</h3>
+                    <ul class="space-y-2">
+                        <li><button class="btn btn-sm w-full bg-green-700 text-white rounded">All Trees</button></li>
+                        <li><button class="btn btn-sm w-full bg-transparent hover:bg-green-100 text-gray-700">Fruit
+                                Trees</button></li>
+                        <li><button class="btn btn-sm w-full bg-transparent hover:bg-green-100 text-gray-700">Flowering
+                                Trees</button></li>
+                        <li><button class="btn btn-sm w-full bg-transparent hover:bg-green-100 text-gray-700">Shade
+                                Trees</button></li>
+                        <li><button class="btn btn-sm w-full bg-transparent hover:bg-green-100 text-gray-700">Medicinal
+                                Trees</button></li>
+                        <li><button class="btn btn-sm w-full bg-transparent hover:bg-green-100 text-gray-700">Timber
+                                Trees</button></li>
+                        <li><button class="btn btn-sm w-full bg-transparent hover:bg-green-100 text-gray-700">Evergreen
+                                Trees</button></li>
+                        <li><button class="btn btn-sm w-full bg-transparent hover:bg-green-100 text-gray-700">Ornamental
+                                Plants</button></li>
+                        <li><button
+                                class="btn btn-sm w-full bg-transparent hover:bg-green-100 text-gray-700">Bamboo</button>
+                        </li>
+                        <li><button
+                                class="btn btn-sm w-full bg-transparent hover:bg-green-100 text-gray-700">Climbers</button>
+                        </li>
+                        <li><button class="btn btn-sm w-full bg-transparent hover:bg-green-100 text-gray-700">Aquatic
+                                Plants</button></li>
+                    </ul>
+                </aside>
+
+                <!-- Products Grid -->
+                <main class="lg:col-span-7">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                        <!-- Single Product Card -->
+                        <div class="card bg-white shadow p-4">
+                            <figure class="bg-gray-200 h-40 rounded"></figure>
+                            <div class="mt-3">
+                                <h4 class="font-semibold">Mango Tree</h4>
+                                <p class="text-sm text-gray-500">৳500</p>
+                                <span class="badge badge-success badge-outline my-2">Fruit Tree</span>
+                                <button class="btn w-full bg-green-700 text-white rounded-full">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <!-- Duplicate for demo -->
+                        <div class="card bg-white shadow p-4">
+                            <figure class="bg-gray-200 h-40 rounded"></figure>
+                            <div class="mt-3">
+                                <h4 class="font-semibold">Guava Tree</h4>
+                                <p class="text-sm text-gray-500">৳500</p>
+                                <span class="badge badge-success badge-outline my-2">Fruit Tree</span>
+                                <button class="btn w-full bg-green-700 text-white rounded-full">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="card bg-white shadow p-4">
+                            <figure class="bg-gray-200 h-40 rounded"></figure>
+                            <div class="mt-3">
+                                <h4 class="font-semibold">Banana Tree</h4>
+                                <p class="text-sm text-gray-500">৳500</p>
+                                <span class="badge badge-success badge-outline my-2">Fruit Tree</span>
+                                <button class="btn w-full bg-green-700 text-white rounded-full">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <!-- আরো কার্ড চাইলে এই div কপি করে যোগ করো -->
+                    </div>
+                </main>
+
+                <!-- Cart Section -->
+                <aside class="lg:col-span-3">
+                    <div class="bg-white p-4 rounded shadow">
+                        <h3 class="font-bold text-lg mb-4">Your Cart</h3>
+                        <ul class="space-y-2">
+                            <div class="flex justify-between bg-green-50 p-2 rounded items-center">
+                                <li class="flex flex-col  ">
+                                    <span>Mango Tree</span>
+                                    <span class="text-sm">৳500 × 1</span>
+                                </li>
+                                <li>
+                                    ×
+                                </li>
+                            </div>
+                            <div class="flex justify-between bg-green-50 p-2 rounded items-center">
+                                <li class="flex flex-col  ">
+                                    <span>Guava Tree</span>
+                                    <span class="text-sm">৳500 × 1</span>
+                                </li>
+                                <li>
+                                    ×
+                                </li>
+                            </div>
+                        </ul>
+                        <div class="mt-4 flex justify-between font-semibold">
+                            <span>Total:</span>
+                            <span>৳1000</span>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </section>
+    </main>
 
 
 
