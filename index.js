@@ -35,13 +35,24 @@ const handleCategoryClick = (id) => {
   dataLoadFromCategoryBtn(id);
 };
 
+// Showing Spinner
+const showSpinner = () => {
+  document.getElementById("spinner").classList.remove("hidden");
+};
+const stopSpinner = () => {
+  document.getElementById("spinner").classList.add("hidden");
+};
+
 //Click Category Button To Load Data
 const dataLoadFromCategoryBtn = async (id) => {
+  showSpinner();
+
   const res = await fetch(
     `https://openapi.programming-hero.com/api/category/${id}`
   );
   const data = await res.json();
   dataLoadFromCategoryBtnShowing(data.plants);
+  stopSpinner();
 };
 
 //Click Category Button To Load Data Showing
@@ -68,9 +79,11 @@ const dataLoadFromCategoryBtnShowing = (cards) => {
 
 // Initially All Data Load Ui
 const loadAllDataInitially = async () => {
+  showSpinner();
   const res = await fetch("https://openapi.programming-hero.com/api/plants");
   const data = await res.json();
   showingAllDataInitially(data.plants);
+  stopSpinner();
 };
 
 // Initially All Data Showing Ui
