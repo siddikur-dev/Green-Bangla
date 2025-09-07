@@ -40,7 +40,7 @@ const dataLoadFromCategoryBtnShowing = (cards) => {
 <div class="mt-3">
 <h4 class="font-semibold">${card.name}</h4>
 <p class="text-sm text-gray-500">৳${card.price}</p>
-<span class="badge badge-success badge-outline my-2">Fruit Tree</span>
+<span class="badge badge-success badge-outline my-2">${card.category}</span>
 <button class="btn w-full bg-green-700 text-white rounded-full">Add to Cart</button>
 </div>
 </div>
