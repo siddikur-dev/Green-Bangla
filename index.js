@@ -65,7 +65,9 @@ const dataLoadFromCategoryBtnShowing = (cards) => {
 
     createDiv.innerHTML = `
     <div class="card bg-white shadow-lg p-4">
-      <img src="${card.image}" alt="" class="bg-gray-200 h-40 rounded">
+      <img src="${
+        card.image
+      }" alt="" class="bg-gray-200 h-40 rounded object-cover">
       <div class="mt-3">
         <h4 class="font-semibold">${card.name}</h4>
         <p class="text-sm text-gray-500">৳${card.price}</p>
@@ -86,24 +88,44 @@ const dataLoadFromCategoryBtnShowing = (cards) => {
   });
 };
 
-//Add To Cart Button And Added History Section
+let total = 0; // Total Money Global History
+
+// Add To Cart Button And Added History Section
 const addToCart = (item) => {
   const historyContainer = document.getElementById("history-container");
 
+  // Increase Total Price
+  total += item.price;
+  updateTotal();
+
   const div = document.createElement("div");
   div.className = "p-2 bg-gray-100 rounded shadow";
-  div.innerHTML = `
-  <div class="flex justify-between bg-green-50 p-2 rounded items-center">
-  <li class="flex flex-col  ">
+
+  div.innerHTML = `<div class="flex justify-between bg-green-50 p-2 rounded items-center">
+  <li class="flex flex-col">
   <span>${item.name}</span>
-  <span >৳${item.price} × 1</span>
+  <span>৳${item.price} × 1</span>
   </li>
-  <li><p class="text-sm"><span class="cursor-pointer">×</span></p>
-  
+  <li>
+  <p class="text-sm">
+  <span class="cursor-pointer text-red-600 font-bold text-2xl">×</span>
+  </p>
   </li>
-  </div>
-  `;
+    </div>`;
+
+  // Remove Price Event
+  const removeBtn = div.querySelector("span.cursor-pointer");
+  removeBtn.addEventListener("click", () => {
+    total -= item.price;
+    updateTotal();
+    div.remove();
+  });
+
   historyContainer.appendChild(div);
+};
+
+const updateTotal = () => {
+  document.getElementById("totalMoney").innerText = `Total: ৳${total}`;
 };
 
 // Initially All Data Load Ui
@@ -122,14 +144,18 @@ const showingAllDataInitially = (cards) => {
   cardContainer.innerHTML = "";
   cards.forEach((card) => {
     const createDiv = document.createElement("div");
+
     createDiv.innerHTML = `
         <div class="card bg-white shadow-lg p-4">
-    <img src=${card.image} alt="" class="bg-gray-200 h-40 rounded">
+    <img src=${card.image} alt="" class="bg-gray-200 h-40 rounded object-cover">
     <div class="mt-3">
     <h4 class="font-semibold">${card.name}</h4>
     <p class="text-sm text-gray-500">৳${card.price}</p>
     <span class="badge badge-success badge-outline my-2">${card.category}</span>
-    <button class="btn w-full bg-green-700 text-white rounded-full">Add to Cart</button>
+    <button onclick='addToCart(${JSON.stringify({
+      name: card.name,
+      price: card.price,
+    })})'   class="btn w-full bg-green-700 text-white rounded-full">Add to Cart</button>
     </div>
     </div>
     `;
