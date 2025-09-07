@@ -39,6 +39,7 @@ const handleCategoryClick = (id) => {
 const showSpinner = () => {
   document.getElementById("spinner").classList.remove("hidden");
 };
+// Stop Spinner
 const stopSpinner = () => {
   document.getElementById("spinner").classList.add("hidden");
 };
@@ -64,17 +65,45 @@ const dataLoadFromCategoryBtnShowing = (cards) => {
 
     createDiv.innerHTML = `
     <div class="card bg-white shadow-lg p-4">
-    <img src=${card.image} alt="" class="bg-gray-200 h-40 rounded">
-    <div class="mt-3">
-    <h4 class="font-semibold">${card.name}</h4>
-    <p class="text-sm text-gray-500">৳${card.price}</p>
-    <span class="badge badge-success badge-outline my-2">${card.category}</span>
-    <button class="btn w-full bg-green-700 text-white rounded-full">Add to Cart</button>
-    </div>
+      <img src="${card.image}" alt="" class="bg-gray-200 h-40 rounded">
+      <div class="mt-3">
+        <h4 class="font-semibold">${card.name}</h4>
+        <p class="text-sm text-gray-500">৳${card.price}</p>
+        <span class="badge badge-success badge-outline my-2">${
+          card.category
+        }</span>
+        <button onclick='addToCart(${JSON.stringify({
+          name: card.name,
+          price: card.price,
+        })})' 
+          class="btn w-full bg-green-700 text-white rounded-full">
+          Add to Cart
+        </button>
+      </div>
     </div>
     `;
     cardContainer.appendChild(createDiv);
   });
+};
+
+//Add To Cart Button And Added History Section
+const addToCart = (item) => {
+  const historyContainer = document.getElementById("history-container");
+
+  const div = document.createElement("div");
+  div.className = "p-2 bg-gray-100 rounded shadow";
+  div.innerHTML = `
+  <div class="flex justify-between bg-green-50 p-2 rounded items-center">
+  <li class="flex flex-col  ">
+  <span>${item.name}</span>
+  <span >৳${item.price} × 1</span>
+  </li>
+  <li><p class="text-sm"><span class="cursor-pointer">×</span></p>
+  
+  </li>
+  </div>
+  `;
+  historyContainer.appendChild(div);
 };
 
 // Initially All Data Load Ui
