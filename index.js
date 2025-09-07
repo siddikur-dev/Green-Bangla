@@ -30,20 +30,48 @@ const dataLoadFromCategoryBtn = async (id) => {
 const dataLoadFromCategoryBtnShowing = (cards) => {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
-  const creteDiv = document.createElement("div");
   cards.forEach((card) => {
     const createDiv = document.createElement("div");
-    createDiv.className = "card bg-base-100 shadow-md";
+
     createDiv.innerHTML = `
-  <div class="card bg-white shadow p-4">
-<img src=${card.image} alt="" class="bg-gray-200 h-40 rounded">
-<div class="mt-3">
-<h4 class="font-semibold">${card.name}</h4>
-<p class="text-sm text-gray-500">৳${card.price}</p>
-<span class="badge badge-success badge-outline my-2">${card.category}</span>
-<button class="btn w-full bg-green-700 text-white rounded-full">Add to Cart</button>
-</div>
-</div>
+    <div class="card bg-white shadow-lg p-4">
+    <img src=${card.image} alt="" class="bg-gray-200 h-40 rounded">
+    <div class="mt-3">
+    <h4 class="font-semibold">${card.name}</h4>
+    <p class="text-sm text-gray-500">৳${card.price}</p>
+    <span class="badge badge-success badge-outline my-2">${card.category}</span>
+    <button class="btn w-full bg-green-700 text-white rounded-full">Add to Cart</button>
+    </div>
+    </div>
+    `;
+    cardContainer.appendChild(createDiv);
+  });
+};
+
+// Initially All Data Load Ui
+const loadAllDataInitially = async () => {
+  const res = await fetch("https://openapi.programming-hero.com/api/plants");
+  const data = await res.json();
+  showingAllDataInitially(data.plants);
+};
+
+// Initially All Data Showing Ui
+const showingAllDataInitially = (cards) => {
+  // console.log(cards);
+  const cardContainer = document.getElementById("card-container");
+  cardContainer.innerHTML = "";
+  cards.forEach((card) => {
+    const createDiv = document.createElement("div");
+    createDiv.innerHTML = `
+        <div class="card bg-white shadow-lg p-4">
+    <img src=${card.image} alt="" class="bg-gray-200 h-40 rounded">
+    <div class="mt-3">
+    <h4 class="font-semibold">${card.name}</h4>
+    <p class="text-sm text-gray-500">৳${card.price}</p>
+    <span class="badge badge-success badge-outline my-2">${card.category}</span>
+    <button class="btn w-full bg-green-700 text-white rounded-full">Add to Cart</button>
+    </div>
+    </div>
     `;
     cardContainer.appendChild(createDiv);
   });
@@ -51,3 +79,6 @@ const dataLoadFromCategoryBtnShowing = (cards) => {
 
 // Default Load All Category Button
 loadCategoriesButton();
+
+// Initially Loading All Data Showing Ui
+loadAllDataInitially();
