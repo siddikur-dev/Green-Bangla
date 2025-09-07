@@ -11,10 +11,28 @@ const showCategoriesBtn = (categories) => {
   const createSingleUl = document.createElement("ul");
   categories.map((category) => {
     createSingleUl.innerHTML += `
-     <li><button onclick="dataLoadFromCategoryBtn('${category.id}')" id="dynamicCategoryBtn" class="btn btn-sm w-full bg-transparent hover:bg-green-100 text-gray-700">${category.category_name}</button></li>
+     <li><button     onclick="handleCategoryClick('${category.id}')" id="categoryBtn${category.id}"  class=" categoryBtn btn btn-sm w-full bg-transparent hover:bg-green-700 hover:text-white text-gray-900">${category.category_name}</button></li>
 `;
   });
   loadCategoriesBTN.append(createSingleUl);
+};
+
+// Active Button Color And De active Button
+const handleCategoryClick = (id) => {
+  // remove active color from all button
+  const buttons = document.querySelectorAll(".categoryBtn");
+  buttons.forEach((btn) => {
+    btn.classList.remove("bg-green-700", "text-white");
+    btn.classList.add("bg-transparent", "text-gray-700");
+  });
+
+  //  button-এ active color add
+  const clickedBtn = document.getElementById(`categoryBtn${id}`);
+  clickedBtn.classList.add("bg-green-700", "text-white");
+  clickedBtn.classList.remove("bg-transparent", "text-gray-700");
+
+  // data load করো
+  dataLoadFromCategoryBtn(id);
 };
 
 //Click Category Button To Load Data
