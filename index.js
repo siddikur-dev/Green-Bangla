@@ -124,6 +124,7 @@ const addToCart = (item) => {
   historyContainer.appendChild(div);
 };
 
+// Call updateTotal Function
 const updateTotal = () => {
   document.getElementById("totalMoney").innerText = `Total: ৳${total}`;
 };
