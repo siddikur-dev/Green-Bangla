@@ -67,13 +67,15 @@ const dataLoadFromCategoryBtnShowing = (cards) => {
 
     createDiv.innerHTML = `
     <div class="card bg-white shadow-lg p-4">
-      <img onclick="openModal(${card.id})" src="${
+      <img  onclick="openModal(${card.id})" src="${
       card.image
-    }" alt="" class="bg-gray-200 h-40 rounded object-cover">
+    }" alt="" class="bg-gray-200 h-40 rounded object-cover cursor-pointer">
       <div class="mt-3">
-        <h4 class="font-semibold">${card.name}</h4>
+        <h4 onclick="openModal(${
+          card.id
+        })" class="font-semibold cursor-pointer">${card.name}</h4>
         <p class="text-sm text-gray-500">৳${card.price}</p>
-        <span class="badge badge-success badge-outline my-2">${
+        <span class="badge badge-success badge-outline my-2 bg-green-100 text-black">${
           card.category
         }</span>
         <button onclick='addToCart(${JSON.stringify({
@@ -100,12 +102,12 @@ const openModal = (id) => {
   modalContent.innerHTML = `
     <img src="${card.image}" alt="${
     card.name
-  }" class="w-full h-40 object-cover rounded mb-4">
+  }" class=" h-40 mx-auto w-full object-cover rounded mb-4">
     <h2 class="text-xl font-semibold">${card.name}</h2>
     <p class="text-gray-600 text-sm my-2">${
       card.description || "No description available."
     }</p>
-    <p class="font-medium">Category: <span class="text-green-600">${
+    <p class="font-medium">Category: <span class="badge badge-success badge-outline my-2 bg-green-100 text-black">${
       card.category
     }</span></p>
     <p class="font-bold text-lg mt-2">৳${card.price}</p>
@@ -184,11 +186,15 @@ const showingAllDataInitially = (cards) => {
         <div class="card bg-white shadow-lg p-4">
     <img onclick="openModal(${card.id})" src=${
       card.image
-    } alt="" class="bg-gray-200 h-40 rounded object-cover">
+    } alt="" class="bg-gray-200 h-40 rounded object-cover cursor-pointer">
     <div class="mt-3">
-    <h4 class="font-semibold">${card.name}</h4>
+    <h4 class="font-semibold cursor-pointer" onclick="openModal(${card.id})">${
+      card.name
+    }</h4>
     <p class="text-sm text-gray-500">৳${card.price}</p>
-    <span class="badge badge-success badge-outline my-2">${card.category}</span>
+    <span class="badge badge-success badge-outline my-2 bg-green-100 text-black">${
+      card.category
+    }</span>
     <button onclick='addToCart(${JSON.stringify({
       name: card.name,
       price: card.price,
