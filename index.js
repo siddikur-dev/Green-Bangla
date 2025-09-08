@@ -74,9 +74,9 @@ const dataLoadFromCategoryBtnShowing = (cards) => {
 
     createDiv.innerHTML = `
     <div class="card bg-white shadow-lg p-4">
-      <img  onclick="openModal(${card.id})" src="${
-      card.image
-    }" alt="" class="bg-gray-200 h-40 rounded object-cover cursor-pointer">
+      <img   src="${
+        card.image
+      }" alt="" class="bg-gray-200 h-40 rounded object-cover ">
       <div class="mt-3">
       <div onclick="openModal(${card.id})" class="cursor-pointer">
         <h4  class="font-semibold ">${card.name}</h4>
@@ -194,9 +194,9 @@ const showingAllDataInitially = (cards) => {
 
     createDiv.innerHTML = `
         <div class="card bg-white shadow-lg p-4">
-    <img onclick="openModal(${card.id})" src=${
+    <img  src=${
       card.image
-    } alt="" class="bg-gray-200 h-40 rounded object-cover cursor-pointer">
+    } alt="" class="bg-gray-200 h-40 rounded object-cover ">
     <div class="mt-3">
     <div class="cursor-pointer" onclick="openModal(${card.id})">
     <h4 class="font-semibold " >${card.name}</h4>
