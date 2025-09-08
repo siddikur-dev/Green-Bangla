@@ -1,19 +1,8 @@
-// Global variable to store category descriptions
-// ========================
-let categoryDescriptions = {}; // key: category_name, value: description
 //Default Category Button
 const loadCategoriesButton = () => {
   fetch("https://openapi.programming-hero.com/api/categories")
     .then((res) => res.json())
-    .then((data) => {
-      // ======= description ম্যাপ তৈরি =======
-      data.categories.forEach((cat) => {
-        categoryDescriptions[cat.category_name] = cat.small_description; // description save করা
-        console.log(categoryDescriptions);
-      });
-
-      showCategoriesBtn(data.categories);
-    });
+    .then((data) => showCategoriesBtn(data.categories));
 };
 
 //Default Category Button Showing
@@ -65,15 +54,7 @@ const dataLoadFromCategoryBtn = async (id) => {
   );
   const data = await res.json();
 
-  // ======= description যোগ করা =======
-  const cardsWithDesc = data.plants.map((card) => ({
-    ...card,
-    small_description:
-      categoryDescriptions[card.category] || "No description available",
-  }));
-
-  // ✅ এখানে cardsWithDesc পাঠানো হচ্ছে
-  dataLoadFromCategoryBtnShowing(cardsWithDesc);
+  dataLoadFromCategoryBtnShowing(data.plants);
   stopSpinner();
 };
 
@@ -81,13 +62,14 @@ const dataLoadFromCategoryBtn = async (id) => {
 let allCards = [];
 const dataLoadFromCategoryBtnShowing = (cards) => {
   allCards = cards;
+  console.log(cards);
 
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
-  cards.forEach((card) => {
-    //  Description Received Here
-    const description =
-      categoryDescriptions[card.category] || "No description available";
+  cards.map((card) => {
+    // Short Description Sliced
+    const description = card.description;
+    let shortDescription = description.slice(0, 50) + "...";
     const createDiv = document.createElement("div");
 
     createDiv.innerHTML = `
@@ -99,7 +81,7 @@ const dataLoadFromCategoryBtnShowing = (cards) => {
         <h4 onclick="openModal(${
           card.id
         })" class="font-semibold cursor-pointer">${card.name}</h4>
-        <h4 class="cursor-pointer text-xs  text-gray-500">${description}</h4>
+        <h4 class="cursor-pointer text-xs  text-gray-500">${shortDescription}</h4>
         <p class="text-sm text-gray-900 py-2">৳${card.price}</p>
         <span class="badge badge-success badge-outline my-2 bg-green-100 text-black">${
           card.category
@@ -205,6 +187,9 @@ const showingAllDataInitially = (cards) => {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
   cards.forEach((card) => {
+    const description = card.description;
+    let shortDescription = description.slice(0, 50) + "...";
+
     const createDiv = document.createElement("div");
 
     createDiv.innerHTML = `
@@ -216,7 +201,8 @@ const showingAllDataInitially = (cards) => {
     <h4 class="font-semibold cursor-pointer" onclick="openModal(${card.id})">${
       card.name
     }</h4>
-    <p class="text-sm text-gray-500">৳${card.price}</p>
+    <p class="text-xs text-gray-500 py-2">${shortDescription}</p>
+    <p class="text-sm text-gray-900">৳${card.price}</p>
     <span class="badge badge-success badge-outline my-2 bg-green-100 text-black">${
       card.category
     }</span>
