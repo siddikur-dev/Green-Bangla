@@ -57,7 +57,9 @@ const dataLoadFromCategoryBtn = async (id) => {
 };
 
 //Click Category Button To Load Data Showing
+let allCards = [];
 const dataLoadFromCategoryBtnShowing = (cards) => {
+  allCards = cards;
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
   cards.forEach((card) => {
@@ -65,9 +67,9 @@ const dataLoadFromCategoryBtnShowing = (cards) => {
 
     createDiv.innerHTML = `
     <div class="card bg-white shadow-lg p-4">
-      <img src="${
-        card.image
-      }" alt="" class="bg-gray-200 h-40 rounded object-cover">
+      <img onclick="openModal(${card.id})" src="${
+      card.image
+    }" alt="" class="bg-gray-200 h-40 rounded object-cover">
       <div class="mt-3">
         <h4 class="font-semibold">${card.name}</h4>
         <p class="text-sm text-gray-500">৳${card.price}</p>
@@ -86,6 +88,38 @@ const dataLoadFromCategoryBtnShowing = (cards) => {
     `;
     cardContainer.appendChild(createDiv);
   });
+};
+
+//Click Category Button Show Card And Open Modal To Click Card
+// Modal Open Function
+const openModal = (id) => {
+  const card = allCards.find((c) => c.id === id);
+  const modal = document.getElementById("cardModal");
+  const modalContent = document.getElementById("modalContent");
+
+  modalContent.innerHTML = `
+    <img src="${card.image}" alt="${
+    card.name
+  }" class="w-full h-40 object-cover rounded mb-4">
+    <h2 class="text-xl font-semibold">${card.name}</h2>
+    <p class="text-gray-600 text-sm my-2">${
+      card.description || "No description available."
+    }</p>
+    <p class="font-medium">Category: <span class="text-green-600">${
+      card.category
+    }</span></p>
+    <p class="font-bold text-lg mt-2">৳${card.price}</p>
+    
+  `;
+
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+};
+
+// Close Modal Function
+const closeModal = () => {
+  const modal = document.getElementById("cardModal");
+  modal.classList.add("hidden");
 };
 
 let total = 0; // Total Money Global History

@@ -116,6 +116,19 @@
                     </div>
                 </div>
 
+                <!-- Modal -->
+                <div id="cardModal"
+                    class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+                    <div class="bg-white rounded-lg p-6 w-96 relative">
+                        <!-- Close Button -->
+                        <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-600">✕</button>
+
+                        <!-- Dynamic Content -->
+                        <div id="modalContent"></div>
+                    </div>
+                </div>
+
+
                 <!-- Cart Aside -->
                 <aside class="lg:col-span-3">
                     <div class="bg-white p-4 rounded shadow">
