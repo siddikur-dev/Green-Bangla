@@ -78,10 +78,10 @@ const dataLoadFromCategoryBtnShowing = (cards) => {
       card.image
     }" alt="" class="bg-gray-200 h-40 rounded object-cover cursor-pointer">
       <div class="mt-3">
-        <h4 onclick="openModal(${
-          card.id
-        })" class="font-semibold cursor-pointer">${card.name}</h4>
-        <h4 class="cursor-pointer text-xs  text-gray-500">${shortDescription}</h4>
+      <div onclick="openModal(${card.id})" class="cursor-pointer">
+        <h4  class="font-semibold ">${card.name}</h4>
+        <h4 class=" text-xs  text-gray-500">${shortDescription}</h4>
+        </div>
         <p class="text-sm text-gray-900 py-2">৳${card.price}</p>
         <span class="badge badge-success badge-outline my-2 bg-green-100 text-black">${
           card.category
@@ -198,10 +198,10 @@ const showingAllDataInitially = (cards) => {
       card.image
     } alt="" class="bg-gray-200 h-40 rounded object-cover cursor-pointer">
     <div class="mt-3">
-    <h4 class="font-semibold cursor-pointer" onclick="openModal(${card.id})">${
-      card.name
-    }</h4>
+    <div class="cursor-pointer" onclick="openModal(${card.id})">
+    <h4 class="font-semibold " >${card.name}</h4>
     <p class="text-xs text-gray-500 py-2">${shortDescription}</p>
+    </div>
     <p class="text-sm text-gray-900">৳${card.price}</p>
     <span class="badge badge-success badge-outline my-2 bg-green-100 text-black">${
       card.category
