@@ -152,7 +152,7 @@ const addToCart = (item) => {
   </li>
   <li>
   <p class="text-sm">
-  <span class="cursor-pointer text-red-600 font-bold text-2xl">×</span>
+  <span class=" cursor-pointer text-red-600 font-bold text-2xl">×</span>
   </p>
   </li>
     </div>`;
