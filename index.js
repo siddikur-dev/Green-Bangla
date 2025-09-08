@@ -174,7 +174,7 @@ const loadAllDataInitially = async () => {
 
 // Initially All Data Showing Ui
 const showingAllDataInitially = (cards) => {
-  // console.log(cards);
+  allCards = cards;
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
   cards.forEach((card) => {
@@ -182,7 +182,9 @@ const showingAllDataInitially = (cards) => {
 
     createDiv.innerHTML = `
         <div class="card bg-white shadow-lg p-4">
-    <img src=${card.image} alt="" class="bg-gray-200 h-40 rounded object-cover">
+    <img onclick="openModal(${card.id})" src=${
+      card.image
+    } alt="" class="bg-gray-200 h-40 rounded object-cover">
     <div class="mt-3">
     <h4 class="font-semibold">${card.name}</h4>
     <p class="text-sm text-gray-500">৳${card.price}</p>
