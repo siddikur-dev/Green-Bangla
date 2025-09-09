@@ -73,7 +73,8 @@ const dataLoadFromCategoryBtnShowing = (cards) => {
     const createDiv = document.createElement("div");
 
     createDiv.innerHTML = `
-    <div class="card bg-white shadow-lg p-4">
+    <div class="card bg-white shadow-lg p-4   transform transition duration-300 
+            hover:scale-103 hover:shadow-lg">
       <img   src="${
         card.image
       }" alt="" class="bg-gray-200 h-40 rounded object-cover ">
@@ -90,7 +91,9 @@ const dataLoadFromCategoryBtnShowing = (cards) => {
           name: card.name,
           price: card.price,
         })})' 
-          class="btn w-full bg-green-700 text-white rounded-full">
+          class="w-full bg-green-700 text-white rounded-full 
+               py-2 px-4 font-semibold cursor-pointer duration-150
+               hover:bg-green-800  hover:shadow-md">
           Add to Cart
         </button>
       </div>
@@ -193,7 +196,8 @@ const showingAllDataInitially = (cards) => {
     const createDiv = document.createElement("div");
 
     createDiv.innerHTML = `
-        <div class="card bg-white shadow-lg p-4">
+        <div class="card bg-white shadow-lg p-4   transform transition duration-300 
+            hover:scale-103 hover:shadow-lg">
     <img  src=${
       card.image
     } alt="" class="bg-gray-200 h-40 rounded object-cover ">
@@ -209,7 +213,9 @@ const showingAllDataInitially = (cards) => {
     <button onclick='addToCart(${JSON.stringify({
       name: card.name,
       price: card.price,
-    })})'   class="btn w-full bg-green-700 text-white rounded-full">Add to Cart</button>
+    })})'   class="bg-green-700 text-white rounded-full 
+               py-2 px-4 font-semibold cursor-pointer duration-150
+               hover:bg-green-800  hover:shadow-md w-full">Add to Cart</button>
     </div>
     </div>
     `;
